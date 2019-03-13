@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>BuildMachineOSBuild</key>
+    <string>16G29</string>
+    <key>CFBundleDisplayName</key>
+    <string>Bootstrap Studio</string>
+    <key>CFBundleExecutable</key>
+    <string>Bootstrap Studio</string>
+    <key>CFBundleIconFile</key>
+    <string>electron.icns</string>
+    <key>CFBundleIdentifier</key>
+    <string>bg.zine.bootstrapstudio</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>Bootstrap Studio</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>4</string>
+    <key>CFBundleVersion</key>
+    <string>4</string>
+    <key>DTSDKBuild</key>
+    <string>14D125</string>
+    <key>DTSDKName</key>
+    <string>macosx10.1010.10</string>
+    <key>DTXcode</key>
+    <string>0821</string>
+    <key>DTXcodeBuild</key>
+    <string>8C1002</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.developer-tools</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.9.0</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSMainNibFile</key>
+    <string>MainMenu</string>
+    <key>NSPrincipalClass</key>
+    <string>AtomApplication</string>
+    <key>NSSupportsAutomaticGraphicsSwitching</key>
+    <true/>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright (C) 2017 Zine EOOD. All rights reserved.</string>
+<key>UTExportedTypeDeclarations</key>
+<array>
+	<dict>
+		<key>UTTypeIdentifier</key>
+		<string>bg.zine.bsdesign</string>
+		<key>UTTypeDescription</key>
+		<string>Bootstrap Studio Design</string>
+		<key>UTTypeIconFile</key>
+		<string>electron.icns</string>
+		<key>UTTypeTagSpecification</key>
+		<dict>
+			<key>public.filename-extension</key>
+			<array>
+				<string>bsdesign</string>
+			</array>
+		</dict>
+	</dict>
+	<dict>
+		<key>UTTypeIdentifier</key>
+		<string>bg.zine.bscomponent</string>
+		<key>UTTypeDescription</key>
+		<string>Bootstrap Studio Component</string>
+		<key>UTTypeIconFile</key>
+		<string>electron.icns</string>
+		<key>UTTypeTagSpecification</key>
+		<dict>
+			<key>public.filename-extension</key>
+			<array>
+				<string>bscomponent</string>
+			</array>
+		</dict>
+	</dict>
+</array>
+<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>bsdesign</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>electron.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Bootstrap Studio Design</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>bscomp</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>electron.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Bootstrap Studio Component</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+		</dict>
+	</array>
+  </dict>
+</plist>
