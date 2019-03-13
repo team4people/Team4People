@@ -1,0 +1,33 @@
+/* Global Styles  */
+
+html, body {
+  overflow-x: hidden;
+}
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+/* Navbar  */
+.navbar  {
+  position: absolute;
+  background-color: transparent;
+  border-color: transparent;
+  font-family: monospace;
+}
+
+.navbar-brand, .navbar-nav {
+  color:#fff !important;
+  font-size: 20px;
+}
+
+/* Jumbotron  */
+.jumbotron {
+  background-image: url("../assets/img/bg-masthead.jpg");
+  height: 100vh;
+
+}
+
+.mainTitle {
+  padding-top: 150px;
+}
