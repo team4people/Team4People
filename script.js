@@ -3,6 +3,19 @@ const modalBtn = document.getElementById('modal-btn');
 const closeBtn = document.querySelector('.close');
 const createEvent = document.getElementById('create');
 
+function createElements () {
+  var newEl = document.createElement('div');
+  var elHeader = document.createElement('h1');
+  elHeader.innerText = "Hello";
+  newEl.appendChild(elHeader);
+  newEl.classList.add('jones');
+  var newELHeader =document.createElement('div');
+  newELHeader.classList.add('media-body');
+
+  document.getElementById('mainEvent').appendChild(newEl);
+  console.log('div created');
+}
+
 // Events
 /*
 console.log(modalBtn);
@@ -31,14 +44,3 @@ function outsideClick(e) {
   }
 }
 */
-const page = {
-
-}
-function createElements () {
-  var newEl = document.createElement('div');
-  newEl.classList.add('media');
-  var newELHeader =document.createElement('div');
-  newELHeader.classList.add('media-body');
-
-
-}
