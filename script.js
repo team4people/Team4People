@@ -3,17 +3,19 @@ const modalBtn = document.getElementById('modal-btn');
 const closeBtn = document.querySelector('.close');
 const createEvent = document.getElementById('create');
 const events = [];
-
+/*
 events.push(new createNewObject(
-  "Main Event", "description of event",
+  , "description of event",
 ))
+
+
 function createNewObject(title, description){
   this.title = title;
   this.description = description;
   return this;
 }
 console.log(events[0]);
-
+*/
 
 
 
@@ -40,6 +42,7 @@ function createElements () {
   var newElBody = document.createElement('div');
   var newElHeader = document.createElement('h5');
   var newElText = document.createElement('p');
+  var newELButton = document.createElement('button');
 
   //Retrieves Text within the elements
 
@@ -54,6 +57,7 @@ function createElements () {
 
   newElContainer.classList.add('media');
   newElBody.classList.add('media-body');
+  newELButton.classList.add('btn');
 
   //Append Elements Together
 
@@ -61,6 +65,8 @@ function createElements () {
   newElContainer.appendChild(newElBody);
   newElBody.appendChild(newElHeader);
   newElBody.appendChild(newElText);
+  newELBody.appendChild(newELButton);
+
 
   document.getElementById('eventDescriptor').value = "";
   document.getElementById('eventTitler').value = "";
