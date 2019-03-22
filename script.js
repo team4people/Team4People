@@ -2,9 +2,34 @@ const modal = document.querySelector('#my-modal');
 const modalBtn = document.getElementById('modal-btn');
 const closeBtn = document.querySelector('.close');
 const createEvent = document.getElementById('create');
+const events = [];
+
+events.push(new createNewObject(
+  "Main Event", "description of event",
+))
+function createNewObject(title, description){
+  this.title = title;
+  this.description = description;
+  return this;
+}
+console.log(events[0]);
+
+
+
 
 function showModal(){
   document.getElementById('eventModal').setAttribute('aria-hidden', 'false');
+}
+
+const admin_account = {
+  username: "alejandroxsx",
+  password: "test",
+  points: 0
+}
+const business_account = {
+  username: "geekwise",
+  password: "test"
+
 }
 
 
@@ -16,14 +41,19 @@ function createElements () {
   var newElHeader = document.createElement('h5');
   var newElText = document.createElement('p');
 
+  //Retrieves Text within the elements
 
+  var eventDescription = document.getElementById('eventDescriptor').value;
+  var eventTitle = document.getElementById('eventTitler').value;
+
+  //Assigns text new elements
+  newElHeader.innerText = eventTitle;
+  newElText.innerText = eventDescription;
 
   //Assign all the bootstrap classes to the ELements
 
   newElContainer.classList.add('media');
   newElBody.classList.add('media-body');
-
-
 
   //Append Elements Together
 
@@ -32,36 +62,12 @@ function createElements () {
   newElBody.appendChild(newElHeader);
   newElBody.appendChild(newElText);
 
-  newElHeader.innerText = 'Event Title';
-  newElText.innerText = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  document.getElementById('eventDescriptor').value = "";
+  document.getElementById('eventTitler').value = "";
+
+
+
+
+
   console.log('created new div');
 }
-
-// Events
-/*
-console.log(modalBtn);
-modalBtn.addEventListener('click', function () {
-  openModal();
-});
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
-console.log("open Modal");
-
-// Open
-function openModal() {
-  modal.style.display = 'block';
-  console.log("openModal");
-}
-
-// Close
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-// Close If Outside Click
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
-}
-*/
