@@ -23,6 +23,7 @@ html, body {
 
 /* Jumbotron  */
 .jumbotron {
+  margin-bottom: 0px;
   background-image: url("../img/bg-masthead.jpg");
   height: 100vh;
 
@@ -30,4 +31,10 @@ html, body {
 
 .mainTitle {
   padding-top: 150px;
+}
+/* Meet the Team  */
+
+.teamPic {
+  height: 250px;
+  width: 200px !important;
 }
