@@ -23,7 +23,7 @@ html, body {
 
 /* Jumbotron  */
 .jumbotron {
-  background-image: url("../assets/img/bg-masthead.jpg");
+  background-image: url("../img/bg-masthead.jpg");
   height: 100vh;
 
 }
