@@ -4,22 +4,46 @@ const closeBtn = document.querySelector('.close');
 const createEvent = document.getElementById('create');
 const events = [];
 
-events.push(new createNewObject(
-  "Main Event", "description of event",
-))
-function createNewObject(title, description){
+const buttonTester = document.querySelector('btn');
+buttonTester.addEventListener('click', console.log('test'));
+
+
+
+function test(){
+  console.log('test');
+}
+
+
+function createNewObject(title, description, id){
   this.title = title;
   this.description = description;
+  this.id =id;
   return this;
 }
-console.log(events[0]);
 
 
 
+function test(message){
+  console.log(message);
+}
+var i = 1 ;
 
 function showModal(){
   document.getElementById('eventModal').setAttribute('aria-hidden', 'false');
 }
+
+var ID_LENGTH = 8;
+var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+function idGenerator() {
+  var rtn = '';
+  for (var i = 0; i < ID_LENGTH; i++) {
+    rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
+}
+return rtn;
+}
+
+
 
 const admin_account = {
   username: "alejandroxsx",
@@ -40,6 +64,11 @@ function createElements () {
   var newElBody = document.createElement('div');
   var newElHeader = document.createElement('h5');
   var newElText = document.createElement('p');
+  var newElButton = document.createElement('button');
+
+  //Gives Button A Unique ID
+  newElButton.id = idGenerator();
+  console.log(newElButton.id);
 
   //Retrieves Text within the elements
 
@@ -50,10 +79,14 @@ function createElements () {
   newElHeader.innerText = eventTitle;
   newElText.innerText = eventDescription;
 
-  //Assign all the bootstrap classes to the ELements
+  //Assign all the bootstrap classes to the Elements
 
   newElContainer.classList.add('media');
   newElBody.classList.add('media-body');
+  newElButton.classList.add('btn');
+  newElButton.classList.add('btn-primary');
+
+
 
   //Append Elements Together
 
@@ -61,6 +94,14 @@ function createElements () {
   newElContainer.appendChild(newElBody);
   newElBody.appendChild(newElHeader);
   newElBody.appendChild(newElText);
+  newElBody.appendChild(newElButton);
+
+  events.push(new createNewObject(
+    eventTitle, eventDescription,newElButton.id,
+  ))
+  console.log(events[0]);
+  console.log(events[1]);
+  //Resets input values to have nothing in them
 
   document.getElementById('eventDescriptor').value = "";
   document.getElementById('eventTitler').value = "";
