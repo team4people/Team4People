@@ -1,18 +1,9 @@
-const modal = document.querySelector('#my-modal');
-const modalBtn = document.getElementById('modal-btn');
-const closeBtn = document.querySelector('.close');
 const createEvent = document.getElementById('create');
 const events = [];
 
-const buttonTester = document.querySelector('btn');
-buttonTester.addEventListener('click', console.log('test'));
 
 
-
-function test(){
-  console.log('test');
-}
-
+// Function That Returns The Values To Push Into New Object
 
 function createNewObject(title, description, id){
   this.title = title;
@@ -20,17 +11,12 @@ function createNewObject(title, description, id){
   this.id =id;
   return this;
 }
-
-
-
-function test(message){
-  console.log(message);
+function checksInput (title,description){
+  if (title == null && description == null ||title == null|| description == null){
+    alert('empty');
+  }
 }
-var i = 1 ;
-
-function showModal(){
-  document.getElementById('eventModal').setAttribute('aria-hidden', 'false');
-}
+// Generates 8 Character Short ID
 
 var ID_LENGTH = 8;
 var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -43,19 +29,20 @@ function idGenerator() {
 return rtn;
 }
 
-
-
+// Fake Accounts For Testing
 const admin_account = {
   username: "alejandroxsx",
   password: "test",
-  points: 0
+  points: 0,
+  registeredEvents: [],
 }
 const business_account = {
   username: "geekwise",
   password: "test"
-
 }
 
+
+// Main Function That Adds Events Onto Main Feed
 
 function createElements () {
 
@@ -86,8 +73,6 @@ function createElements () {
   newElButton.classList.add('btn');
   newElButton.classList.add('btn-primary');
 
-
-
   //Append Elements Together
 
   document.getElementById('mainEvent').appendChild(newElContainer);
@@ -96,19 +81,26 @@ function createElements () {
   newElBody.appendChild(newElText);
   newElBody.appendChild(newElButton);
 
+  // Calls Function That Pushes Input Into A New Object
   events.push(new createNewObject(
     eventTitle, eventDescription,newElButton.id,
   ))
-  console.log(events[0]);
-  console.log(events[1]);
+
+  // Listener that adds the event to the profile object
+
+  newElButton.addEventListener('click', function(){
+    checksInput(eventTitle, eventDescription);
+    admin_account.registeredEvents.push(new createNewObject(
+      eventTitle,eventDescription,newElButton.id,
+    ));
+      console.log(admin_account.registeredEvents[0]);
+      console.log(admin_account.registeredEvents[1]);
+
+  });
+
   //Resets input values to have nothing in them
 
   document.getElementById('eventDescriptor').value = "";
   document.getElementById('eventTitler').value = "";
 
-
-
-
-
-  console.log('created new div');
 }
