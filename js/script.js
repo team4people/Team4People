@@ -1,8 +1,5 @@
 const createEvent = document.getElementById('create');
 const events = [];
-
-
-
 // Function That Returns The Values To Push Into New Object
 
 function createNewObject(title, description, id){
@@ -16,6 +13,7 @@ function checksInput (title,description){
     alert('empty');
   }
 }
+
 // Generates 8 Character Short ID
 
 var ID_LENGTH = 8;
@@ -27,6 +25,18 @@ function idGenerator() {
     rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
 }
 return rtn;
+}
+
+function registeredList(eventTitle,eventDescription){
+  var modalEventTitle = document.createElement('h6');
+  var modalEventDescription = document.createElement('p');
+
+  modalEventTitle.innerText = eventTitle;
+  modalEventDescription.innerText = eventDescription;
+
+  document.getElementById('registerModalBody').appendChild(modalEventTitle);
+  document.getElementById('registerModalBody').appendChild(modalEventDescription);
+
 }
 
 // Fake Accounts For Testing
@@ -66,6 +76,8 @@ function createElements () {
   newElHeader.innerText = eventTitle;
   newElText.innerText = eventDescription;
 
+  registeredList(newElHeader.innerText,newElText.innerText);
+
   //Assign all the bootstrap classes to the Elements
 
   newElContainer.classList.add('media');
@@ -89,7 +101,7 @@ function createElements () {
   // Listener that adds the event to the profile object
 
   newElButton.addEventListener('click', function(){
-    checksInput(eventTitle, eventDescription);
+
     admin_account.registeredEvents.push(new createNewObject(
       eventTitle,eventDescription,newElButton.id,
     ));
