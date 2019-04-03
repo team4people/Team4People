@@ -1,19 +1,56 @@
 const createEvent = document.getElementById('create');
 const events = [];
+const accounts = [];
+var globalLog = false;
 // Function That Returns The Values To Push Into New Object
+var loginButton = document.getElementById('loginTrigger');
+loginButton.addEventListener('click', function (){
 
-function createNewObject(title, description, id){
+})
+var signupButton = document.getElementById('signupTrigger');
+signupButton.addEventListener('click', function (){
+  var username = document.getElementById('newUsername').value;
+  var password = document.getElementById('newPassword').value;
+
+  signUp(username,password);
+})
+
+function signUp(username,password) {
+    for(i = 0; i < accounts.length; i++) {
+    if(!accounts.includes('username')) {
+        accounts.push(createNewAccounts(username, password));
+    } else {
+        alert('username taken');
+    }
+
+}
+}
+
+function createNewAccounts(username, password) {
+    this.username = username;
+    this.password = password;
+    return this;
+}
+
+
+function createNewObject(title, description, id,time,timeEnd,date){
+
   this.title = title;
   this.description = description;
   this.id =id;
+  this.time = time;
+  this.timeEnd = timeEnd;
+  this.date;
+
   return this;
 }
-function checksInput (title,description){
-  if (title == null && description == null ||title == null|| description == null){
-    alert('empty');
-  }
-}
 
+function createAccount(username, password){
+  this.username,
+  this.password
+
+  return this;
+}
 // Generates 8 Character Short ID
 
 var ID_LENGTH = 8;
@@ -40,11 +77,17 @@ function registeredList(eventTitle,eventDescription){
 }
 
 // Fake Accounts For Testing
-const admin_account = {
-  username: "alejandroxsx",
-  password: "test",
-  points: 0,
+accounts[0] = {
+  username: "lx",
+  password: "pass",
   registeredEvents: [],
+  loggedIn: false,
+}
+accounts[1] = {
+  username: 'zach',
+  password: 'passs',
+  registeredEvents: [],
+  loggedIn : false,
 }
 const business_account = {
   username: "geekwise",
@@ -62,6 +105,9 @@ function createElements () {
   var newElHeader = document.createElement('h5');
   var newElText = document.createElement('p');
   var newElButton = document.createElement('button');
+  var newElDate = document.createElement('p');
+  var newElTime = document.createElement('p');
+  var newElTimeEnd =document.createElement('p');
 
   //Gives Button A Unique ID
   newElButton.id = idGenerator();
@@ -71,12 +117,16 @@ function createElements () {
 
   var eventDescription = document.getElementById('eventDescriptor').value;
   var eventTitle = document.getElementById('eventTitler').value;
+  var eventTime = document.getElementById('eventTime').value;
+  var eventTimeEnd = document.getElementById('eventTimeEnd').value;
+  var eventDate = document.getElementById('eventDate').value;
+
 
   //Assigns text new elements
   newElHeader.innerText = eventTitle;
   newElText.innerText = eventDescription;
 
-  registeredList(newElHeader.innerText,newElText.innerText);
+
 
   //Assign all the bootstrap classes to the Elements
 
@@ -95,24 +145,44 @@ function createElements () {
 
   // Calls Function That Pushes Input Into A New Object
   events.push(new createNewObject(
-    eventTitle, eventDescription,newElButton.id,
+    eventTitle, eventDescription,newElButton.id,newElTime,newElTimeEnd,newElDate
   ))
 
   // Listener that adds the event to the profile object
 
-  newElButton.addEventListener('click', function(){
+    newElButton.addEventListener('click', function(){
+    checkLog();
 
-    admin_account.registeredEvents.push(new createNewObject(
-      eventTitle,eventDescription,newElButton.id,
+    if(globalLog) {
+    for (i = 0; i < accounts.length; i ++){
+      if (accounts[i].loggedIn === true) {
+    accounts[i].registeredEvents.push(new createNewObject(
+      eventTitle,eventDescription,newElButton.id, eventTime, eventTimeEnd,eventDate
     ));
-      console.log(admin_account.registeredEvents[0]);
-      console.log(admin_account.registeredEvents[1]);
+  }
+  console.log(accounts[0].registeredEvents[0]);
+}
+}
+else {
+  alert('Not logged in');
+}
+
+
 
   });
+
 
   //Resets input values to have nothing in them
 
   document.getElementById('eventDescriptor').value = "";
   document.getElementById('eventTitler').value = "";
 
+}
+
+function checkLog (){
+  for(i = 0; i< accounts.length; i++){
+    if(accounts[i].loggedIn === true) {
+      globalLog = true;
+    }
+  }
 }
