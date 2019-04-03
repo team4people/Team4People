@@ -5,6 +5,9 @@ var globalLog = false;
 // Function That Returns The Values To Push Into New Object
 var loginButton = document.getElementById('loginTrigger');
 loginButton.addEventListener('click', function (){
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  login(username,password);
 
 })
 var signupButton = document.getElementById('signupTrigger');
@@ -13,18 +16,47 @@ signupButton.addEventListener('click', function (){
   var password = document.getElementById('newPassword').value;
 
   signUp(username,password);
+  password.value = "";
+  username.value = "";
 })
 
 function signUp(username,password) {
-    for(i = 0; i < accounts.length; i++) {
-    if(!accounts.includes('username')) {
-        accounts.push(createNewAccounts(username, password));
-    } else {
-        alert('username taken');
+  console.log(username,password);
+  let canSignUp = true;
+  for (i = 0; i < accounts.length; i++ ) {
+    console.log(accounts[i].username);
+    if (username === accounts[i].username){
+      alert('Username taken');
+      canSignUp = false;
     }
+  }
+      if(canSignUp) {
+      accounts.push(createNewAccounts(username, password));
+    }
+}
+
+function login(username,password){
+
+  for (i = 0; i < accounts.length; i++ ) {
+
+    if (username === accounts[i].username && password === accounts[i].password){
+      accounts[i].loggedIn = true;
+      changeProfile(account[i]);
+    }
+  }
 
 }
-}
+var signoutButton = document.getElementById('signout');
+
+signoutButton.addEventListener('click', function(){
+  globalLog = false;
+  for (i = 0;  i < accounts.length; i ++){
+    console.log(accounts[i].loggedIn)
+    accounts[i].loggedIn = false;
+    console.log(accounts[i].loggedIn);
+  }
+})
+
 
 function createNewAccounts(username, password) {
     this.username = username;
