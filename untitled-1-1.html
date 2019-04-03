@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/Footer-Dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="css/untitled.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,9 +36,9 @@
         <div class="container d-xl-flex justify-content-xl-center">
             <div class="row">
                 <div class="col-md-4 col-lg-3">
-                    <div class="card"><a data-toggle= "modal" data-target="#registered" ><img class="rounded-circle img-fluid card-img-top w-100 d-block d-flex align-items-end" src="img/profilePic.jpg" ></a>
+                    <div class="card"><a data-toggle= "modal" data-target="#registered" onclick="displayRegisteredEvents()" ><img class="rounded-circle img-fluid card-img-top w-100 d-block d-flex align-items-end" src="img/profilePic.jpg" ></a>
                         <div class="card-body">
-                            <h4 class="card-title">Name</h4>
+                            <h4 class="card-title" id = "profileName">Profile Name</h4>
                             <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                         </div>
                     </div>
@@ -88,6 +89,7 @@
                                 <div class="modal-header">
                                     <h4 class="modal-title">Registered Events</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
                                 <div class="modal-body form-group" id = "registerModalBody">
+                                  <p> hello </p>
 
                                 </div>
                                 <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal" >Close</button></div>

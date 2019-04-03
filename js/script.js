@@ -20,6 +20,7 @@ signupButton.addEventListener('click', function (){
   username.value = "";
 })
 
+
 function signUp(username,password) {
   console.log(username,password);
   let canSignUp = true;
@@ -41,11 +42,53 @@ function login(username,password){
 
     if (username === accounts[i].username && password === accounts[i].password){
       accounts[i].loggedIn = true;
-      changeProfile(account[i]);
+      displayProfile(accounts[i]);
+
+    }
+  }}
+function displayRegisteredEvents(){
+  clearText();
+  for (i = 0; i < accounts.length; i++){
+    if (accounts[i].loggedIn === true){
+      for(j = 0; j < accounts[i].registeredEvents.length; j++) {
+      appendRegisteredEvent(accounts[i].registeredEvents[j].title,
+        accounts[i].registeredEvents[j].description,
+        accounts[i].registeredEvents[j].id,
+        accounts[i].registeredEvents[j].time,
+        accounts[i].registeredEvents[j].timeEnd,
+        accounts[i].registeredEvents[j].date,
+      )
+    }
     }
   }
-
 }
+function appendRegisteredEvent(title,description,id,time,timeEnd,date){
+  var modalEventTitle = document.createElement('h6');
+  var modalEventDescription = document.createElement('p');
+  var modalEventTime = document.createElement('p');
+  var modalEventTimeEnd = document.createElement('p');
+  var modalEventDate = document.createElement('p');
+
+  modalEventTitle.innerText = title;
+  modalEventDescription.innerText = description;
+  modalEventTime.innerText = time;
+  modalEventTimeEnd.innerText = timeEnd;
+  modalEventDate.innerText = date;
+
+
+  document.getElementById('registerModalBody').appendChild(modalEventTitle);
+  document.getElementById('registerModalBody').appendChild(modalEventDescription);
+  document.getElementById('registerModalBody').appendChild(modalEventTime);
+  document.getElementById('registerModalBody').appendChild(modalEventTimeEnd);
+  document.getElementById('registerModalBody').appendChild(modalEventDate);
+}
+
+
+function displayProfile(accounts){
+  var profileName = document.getElementById('profileName');
+  profileName.innerText = accounts.username;
+}
+
 var signoutButton = document.getElementById('signout');
 
 signoutButton.addEventListener('click', function(){
@@ -55,12 +98,18 @@ signoutButton.addEventListener('click', function(){
     accounts[i].loggedIn = false;
     console.log(accounts[i].loggedIn);
   }
-})
+  clearText();
+  displayProfile(accounts[0]);
 
+})
+function clearText(){
+  $('#registerModalBody').empty();
+}
 
 function createNewAccounts(username, password) {
     this.username = username;
     this.password = password;
+
     return this;
 }
 
@@ -96,26 +145,22 @@ function idGenerator() {
 return rtn;
 }
 
-function registeredList(eventTitle,eventDescription){
-  var modalEventTitle = document.createElement('h6');
-  var modalEventDescription = document.createElement('p');
 
-  modalEventTitle.innerText = eventTitle;
-  modalEventDescription.innerText = eventDescription;
-
-  document.getElementById('registerModalBody').appendChild(modalEventTitle);
-  document.getElementById('registerModalBody').appendChild(modalEventDescription);
-
-}
 
 // Fake Accounts For Testing
 accounts[0] = {
-  username: "lx",
+  username: "Profile Name",
   password: "pass",
   registeredEvents: [],
   loggedIn: false,
 }
 accounts[1] = {
+  username: "lx",
+  password: "pass",
+  registeredEvents: [],
+  loggedIn: false,
+}
+accounts[2] = {
   username: 'zach',
   password: 'passs',
   registeredEvents: [],
