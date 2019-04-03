@@ -18,21 +18,20 @@
 
 <body>
 <!-- NAVBAR  -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-  <a class="navbar-brand" href="#">STEPUP</a>
-  <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto navright-">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="untitled-1-1.html">Events</a>
-      <a class="nav-item nav-link" href="#">Sponsors</a>
-      <button type="button" class="btn btn-info m-1" href="#">LOGIN</button>
-      <button type="button" class="btn btn-info m-1" href="#">SIGNUP</button>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">StepUP</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+         id="navcol-1">
+            <ul class="nav navbar-nav text-center ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#" id="create" data-toggle= "modal" data-target="#eventModal">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#">Events</a></li>
+                <button type="button" class="btn btn-primary m-1 login" href="#">LOGIN</button>
+            </ul>
+
+        </div>
     </div>
-  </div>
 </nav>
 <!-- END OF NAVBAR  -->
 <!-- JUMBOTRON  -->
@@ -43,53 +42,37 @@
     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form>
             <div class="form-row d-lg-flex justify-content-lg-center">
-                <div class="col-12 col-md-3 d-lg-flex justify-content-lg-center"><button class="btn btn-primary btn-block btn-lg" type="submit">Sign up!</button></div>
+                <div class="col-12 col-md-3 d-lg-flex justify-content-lg-center"><button class="btn btn-primary btn-block btn-lg login" type="submit">Sign up!</button></div>
             </div>
         </form>
   </div>
 </div>
 </div>
-    <!-- <header class="masthead text-white text-center" style="background:url('assets/img/bg-masthead.jpg')no-repeat center center;background-size:cover;">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <h1 class="mb-5">StepUP</h1>
-                </div>
-                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <form>
-                        <div class="form-row d-lg-flex justify-content-lg-center">
-                            <div class="col-12 col-md-3 d-lg-flex justify-content-lg-center"><button class="btn btn-primary btn-block btn-lg" type="submit">Sign up!</button></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header> -->
-    <section class="features-icons bg-light text-center">
+    <section class="features-icons bg-light text-center keyFeatures">
         <div class="container-fluid">
             <div class="row d-lg-flex justify-content-lg-center align-items-lg-center">
                 <div class="col-lg-4 d-lg-flex align-items-lg-center">
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" data-bs-hover-animate="pulse"></i></div>
+                        <div class="d-flex features-icons-icon icons "><i class="icon-screen-desktop m-auto text-primary" data-bs-hover-animate="pulse"></i></div>
                         <h3>Volunteering Opportunities Online</h3>
-                        <p class="lead mb-0"></p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><i class="icon-check m-auto text-primary" data-bs-hover-animate="pulse"></i></div>
-                        <h3>Easy to post Opporutnities</h3>
-                        <p class="lead mb-0"></p>
+                        <div class="d-flex features-icons-icon icons mb-2"><i class="icon-check m-auto text-primary" data-bs-hover-animate="pulse"></i></div>
+                        <h3 class="mb-4">Easy to post Opporutnities</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="showcase"></section>
-    <section class="text-center bg-light">
-        <section class="call-to-action text-white text-center" style="background:url(&quot;img/bg-masthead.jpg&quot;) no-repeat center center;background-size:cover;"></section>
-        <div class="container">
+    <div>
+        <section class="call-to-action text-white text-center showcase" style="background:url(&quot;img/bg-masthead.jpg&quot;) no-repeat center center;background-size:cover;">
+          <h1 class="banner display4">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</h1>
+        </section>
+    </div>
+        <section class="text-center bg-light">
+        <div class="container meet">
             <h2 class="mb-5">Meet The Team !</h2>
             <div class="row d-lg-flex justify-content-lg-center">
                 <div class="col-lg-4">

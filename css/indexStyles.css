@@ -10,14 +10,17 @@ html, body {
 
 /* Navbar  */
 .navbar  {
-  position: absolute;
-  background-color: transparent;
+  background-color: #5382b7;
   border-color: transparent;
   font-family: monospace;
 }
 
+.login {
+  background-color: #222f79;
+  color:#ffffff;
+}
 .navbar-brand, .navbar-nav {
-  color:#fff !important;
+  color:#ffffff !important;
   font-size: 20px;
 }
 
@@ -32,9 +35,32 @@ html, body {
 .mainTitle {
   padding-top: 150px;
 }
-/* Meet the Team  */
+/* Features  */
+.keyFeatures {
+  height: 65vh;
+}
 
+/* showcase  */
+.showcase {
+  height: 60vh;
+}
+/* banner  */
+.banner {
+background-color:rgba(51, 51, 51, 0.733);
+padding: 20px 0px;
+}
+/* Meet the Team  */
+.meet {
+  padding-top: 65px;
+  height: 80vh;
+}
 .teamPic {
   height: 250px;
   width: 200px !important;
+}
+
+@media (max-width: 1024px) {
+  .meet {
+    height: 145vh;
+  };
 }
