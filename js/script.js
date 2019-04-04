@@ -14,15 +14,16 @@ var signupButton = document.getElementById('signupTrigger');
 signupButton.addEventListener('click', function (){
   var username = document.getElementById('newUsername').value;
   var password = document.getElementById('newPassword').value;
-
-  signUp(username,password);
+  var bio = document.getElementById('newBio').value;
+  signUp(username,password, bio);
   password.value = "";
   username.value = "";
+  bio.value = "";
 })
 
 
-function signUp(username,password) {
-  console.log(username,password);
+function signUp(username,password, bio) {
+  console.log(username,password, bio);
   let canSignUp = true;
   for (i = 0; i < accounts.length; i++ ) {
     console.log(accounts[i].username);
@@ -32,7 +33,7 @@ function signUp(username,password) {
     }
   }
       if(canSignUp) {
-      accounts.push(createNewAccounts(username, password));
+      accounts.push(createNewAccounts(username, password, bio));
     }
 }
 
@@ -48,9 +49,14 @@ function login(username,password){
   }}
 function displayRegisteredEvents(){
   clearText();
+  console.log('hi');
   for (i = 0; i < accounts.length; i++){
     if (accounts[i].loggedIn === true){
+      console.log(accounts[i].registeredEvents.length);
+      console.log(accounts[i].username);
+      console.log(accounts[i].registeredEvents);
       for(j = 0; j < accounts[i].registeredEvents.length; j++) {
+        console.log('hi again');
       appendRegisteredEvent(accounts[i].registeredEvents[j].title,
         accounts[i].registeredEvents[j].description,
         accounts[i].registeredEvents[j].id,
@@ -62,31 +68,33 @@ function displayRegisteredEvents(){
     }
   }
 }
+
 function appendRegisteredEvent(title,description,id,time,timeEnd,date){
-  var modalEventTitle = document.createElement('h6');
+
+  console.log(title, description, date, time, timeEnd);
+  const registeredEventModal = document.getElementById('registerModalBody');
+
+  var modalEventWrapper = document.createElement('div');
+  var modalEventTitle = document.createElement('h5');
   var modalEventDescription = document.createElement('p');
-  var modalEventTime = document.createElement('p');
-  var modalEventTimeEnd = document.createElement('p');
-  var modalEventDate = document.createElement('p');
+  var modalEventDate = document.createElement('h6');
 
   modalEventTitle.innerText = title;
+  modalEventDate.innerText = date + '\xa0 \xa0 \xa0 | \xa0 \xa0 \xa0' + time + ' - ' + timeEnd;
   modalEventDescription.innerText = description;
-  modalEventTime.innerText = time;
-  modalEventTimeEnd.innerText = timeEnd;
-  modalEventDate.innerText = date;
 
-
-  document.getElementById('registerModalBody').appendChild(modalEventTitle);
-  document.getElementById('registerModalBody').appendChild(modalEventDescription);
-  document.getElementById('registerModalBody').appendChild(modalEventTime);
-  document.getElementById('registerModalBody').appendChild(modalEventTimeEnd);
-  document.getElementById('registerModalBody').appendChild(modalEventDate);
+  registeredEventModal.appendChild(modalEventWrapper);
+  modalEventWrapper.appendChild(modalEventTitle);
+  modalEventWrapper.appendChild(modalEventDate);
+  modalEventWrapper.appendChild(modalEventDescription);
 }
 
 
 function displayProfile(accounts){
   var profileName = document.getElementById('profileName');
   profileName.innerText = accounts.username;
+  var profileBio = document.getElementById('profileBio');
+  profileBio.innerText = accounts.bio;
 }
 
 var signoutButton = document.getElementById('signout');
@@ -106,22 +114,23 @@ function clearText(){
   $('#registerModalBody').empty();
 }
 
-function createNewAccounts(username, password) {
+function createNewAccounts(username, password, bio) {
     this.username = username;
     this.password = password;
-
+    this.bio = bio;
     return this;
 }
 
 
-function createNewObject(title, description, id,time,timeEnd,date){
+function createNewObject(title, description, id,time, timeEnd, date){
 
   this.title = title;
   this.description = description;
   this.id =id;
   this.time = time;
   this.timeEnd = timeEnd;
-  this.date;
+  this.date = date;
+  console.log('new event', this)
 
   return this;
 }
@@ -153,12 +162,14 @@ accounts[0] = {
   password: "pass",
   registeredEvents: [],
   loggedIn: false,
+  bio: 'This is a default bio about what you will say about yourself and what kind of impact you would like to make',
 }
 accounts[1] = {
   username: "lx",
   password: "pass",
   registeredEvents: [],
   loggedIn: false,
+  bio: "CEO and creater of StepUP.  "
 }
 accounts[2] = {
   username: 'zach',
@@ -180,11 +191,9 @@ function createElements () {
   var newElContainer = document.createElement('div');
   var newElBody = document.createElement('div');
   var newElHeader = document.createElement('h5');
-  var newElText = document.createElement('p');
+  var newElText = document.createElement('div');
   var newElButton = document.createElement('button');
-  var newElDate = document.createElement('p');
-  var newElTime = document.createElement('p');
-  var newElTimeEnd =document.createElement('p');
+  var newElDate = document.createElement('h6');
 
   //Gives Button A Unique ID
   newElButton.id = idGenerator();
@@ -202,7 +211,10 @@ function createElements () {
   //Assigns text new elements
   newElHeader.innerText = eventTitle;
   newElText.innerText = eventDescription;
-
+  newElDate.innerText = `${eventDate}` + '\xa0 \xa0 \xa0 | \xa0 \xa0 \xa0' + `${eventTime}` + ' - ' + `${eventTimeEnd}`;
+  newElDate.style.fontStyle = "italic";
+  newElDate.style.fontSize = "12px";
+  newElButton.innerText = "Register";
 
 
   //Assign all the bootstrap classes to the Elements
@@ -211,19 +223,23 @@ function createElements () {
   newElBody.classList.add('media-body');
   newElButton.classList.add('btn');
   newElButton.classList.add('btn-primary');
+  newElText.classList.add('eventTextDescription');
 
   //Append Elements Together
 
   document.getElementById('mainEvent').appendChild(newElContainer);
   newElContainer.appendChild(newElBody);
   newElBody.appendChild(newElHeader);
+  newElBody.appendChild(newElDate);
   newElBody.appendChild(newElText);
   newElBody.appendChild(newElButton);
 
+
+
   // Calls Function That Pushes Input Into A New Object
   events.push(new createNewObject(
-    eventTitle, eventDescription,newElButton.id,newElTime,newElTimeEnd,newElDate
-  ))
+    eventTitle, eventDescription,newElButton.id,eventTime,eventTimeEnd,eventDate
+  ));
 
   // Listener that adds the event to the profile object
 

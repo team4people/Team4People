@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - StepUp</title>
+    <title>stepUP</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="fonts/font-awesome.min.css">
@@ -13,127 +12,168 @@
     <link rel="stylesheet" href="css/Footer-Basic.css">
     <link rel="stylesheet" href="css/Footer-Dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="css/indexStyles.css">
+    <link rel="stylesheet" href="css/untitled.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
-<!-- NAVBAR  -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-  <a class="navbar-brand" href="#">STEPUP</a>
-  <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto navright-">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <button type="button" class="btn btn-info m-1" href="#">LOGIN</button>
-      <button type="button" class="btn btn-info m-1" href="#">SIGNUP</button>
-    </div>
-  </div>
-</nav>
-<!-- JUMBOTRON  -->
-<div class="jumbotron jumbotron-fluid">
-  <div class="container text-center mainTitle">
-    <h1 class="display-4"> Volunteering Just Got Better!</h1>
-    <p class="lead">Earn points for supporting your favorite causes to reedem special prizes and discounts from our sponsors.</p>
-    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-            <div class="form-row d-lg-flex justify-content-lg-center">
-                <div class="col-12 col-md-3 d-lg-flex justify-content-lg-center"><button class="btn btn-primary btn-block btn-lg" type="submit">Sign up!</button></div>
-            </div>
-        </form>
-  </div>
-</div>
+    <nav class="navbar navbar-light navbar-expand-md" style="background-color: #5382b7;shadow: 20px;">
+        <div class="container-fluid"><a class="navbar-brand" href="#">StepUP</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" id="create" data-toggle= "modal" data-target="#eventModal">Create Event</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" data-toggle= "modal" data-target="#loginModal" >Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" id = "signout" >Sign Out</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" data-toggle= "modal" data-target="#signupModal" >Sign UP</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"></a></li>
+                </ul>
 
-     <header class="masthead text-white text-center" style="background:url('assets/img/bg-masthead.jpg')no-repeat center center;background-size:cover;">
-        <div class="overlay"></div>
-        <div class="container">
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="container d-xl-flex justify-content-xl-center">
             <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <h1 class="mb-5">StepUP</h1>
-                </div>
-                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <form>
-                        <div class="form-row d-lg-flex justify-content-lg-center">
-                            <div class="col-12 col-md-3 d-lg-flex justify-content-lg-center"><button class="btn btn-primary btn-block btn-lg" type="submit">Sign up!</button></div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card"><a data-toggle= "modal" data-target="#registered" onclick="displayRegisteredEvents()" ><img class="rounded-circle img-fluid card-img-top w-100 d-block d-flex align-items-end" src="img/male101.png" ></a>
+                        <div class="card-body">
+                            <h4 class="card-title" id = "profileName">Profile Name</h4>
+                            <p class="card-text" id="profileBio">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section class="features-icons bg-light text-center">
-        <div class="container">
-            <div class="row d-lg-flex justify-content-lg-center align-items-lg-center">
-                <div class="col-lg-4 d-lg-flex align-items-lg-center">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" data-bs-hover-animate="pulse"></i></div>
-                        <h3>Volunteering Opportunities Online</h3>
-                        <p class="lead mb-0"></p>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><i class="icon-check m-auto text-primary" data-bs-hover-animate="pulse"></i></div>
-                        <h3>Easy to post Opporutnities</h3>
-                        <p class="lead mb-0"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="showcase"></section>
-    <section class="testimonials text-center bg-light">
-        <section class="call-to-action text-white text-center" style="background:url(&quot;assets/img/bg-masthead.jpg&quot;) no-repeat center center;background-size:cover;"></section>
-        <div class="container">
-            <h2 class="mb-5">Meet The Team !</h2>
-            <div class="row d-lg-flex justify-content-lg-center">
-                <div class="col-lg-4">
-                    <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" src="assets/img/testimonials-1.jpg">
-                        <h5>Margaret E.</h5>
-                        <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" src="profilePic.jpg">
-                        <h5>Fred S.</h5>
-                        <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="footer bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 my-auto h-100 text-center text-lg-left">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Contact</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">© StepUp 2018. All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-6 my-auto h-100 text-center text-lg-right">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div> 
-    </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-animation.js"></script>
-</body>
+                <div class="col-md-4 col-lg-6" id="mainEvent">
+                    <h1>Event Feed</h1>
 
-</html>
+                    <h1 class="text-center"></h1>
+                    <div class="media">
+                        <div class="media-body">
+                            <h5>Media Heading</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus nisl ac diam feugiat, non vestibulum libero posuere. Vivamus pharetra leo non nulla egestas, nec malesuada orci finibus. </p>
+                            <button class = "btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body">
+                            <h5>Media Heading</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus nisl ac diam feugiat, non vestibulum libero posuere. Vivamus pharetra leo non nulla egestas, nec malesuada orci finibus. </p>
+                            <button class = "btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body">
+                            <h5>Media Heading</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus nisl ac diam feugiat, non vestibulum libero posuere. Vivamus pharetra leo non nulla egestas, nec malesuada orci finibus. </p>
+                            <button class = "btn btn-primary">Register</button>
+                        </div>
+                    </div>
+
+                    <div class="modal fade d-xl-flex justify-content-xl-center align-items-xl-center" id= "eventModal" role="dialog" tabindex="1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create An Event</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                <div class="modal-body form-group">
+                                    <input type="text" name="" placeholder="Name Event" class= "form-group form-control" id = "eventTitler">
+
+                                    <input type="time" placeholder="time" id = "eventTime">  <input type="time" placeholder="time" id = "eventTimeEnd">
+                                    <input type="date" placeholder="date" id = "eventDate">
+                                    <textarea name="name" rows="8" cols="50" placeholder="Event Description"class ="form-group form-control"id = "eventDescriptor"></textarea>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal" onclick="createElements()">Save</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade d-xl-flex justify-content-xl-center align-items-xl-center" id= "registered" role="dialog" tabindex="1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Registered Events</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                <div class="modal-body form-group" id = "registerModalBody">
+                                  <p> hello </p>
+
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal" >Close</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade d-xl-flex justify-content-xl-center align-items-xl-center" id= "loginModal" role="dialog" tabindex="1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Login</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                <div class="modal-body form-group" id = "loginBody">
+                                  <input type="text" name="" placeholder="username" id = "username"><br><br>
+                                  <input type="password" id = "password"  placeholder="password">
+
+
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal" id = "loginTrigger" >Login</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade d-xl-flex justify-content-xl-center align-items-xl-center" id= "signupModal" role="dialog" tabindex="1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">sign up</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                <div class="modal-body form-group" id = "signupBody">
+                                  <input type="text" name="" placeholder="username" id = "newUsername"><br><br>
+                                  <input type="password" id = "newPassword"  placeholder="password"><br><br>
+                                  <input type="text" id="newBio" placeholder="bio">
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal" id = "signupTrigger" >sign up</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 d-lg-flex justify-content-lg-center">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="d-flex d-sm-flex d-lg-flex justify-content-center justify-content-sm-center justify-content-lg-center"><img class="d-lg-flex justify-content-lg-center" src="img/download.png" style="height: 183px;min-width: auto;max-width: 183;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="d-sm-flex justify-content-sm-center">
+                                    <td class="d-flex d-lg-flex justify-content-center justify-content-lg-center"><img src="img/download%202.png"></td>
+                                </tr>
+                                <tr class="d-sm-flex justify-content-sm-center">
+                                    <td class="d-lg-flex justify-content-lg-center"><img></td>
+                                </tr>
+                                <tr class="d-sm-flex justify-content-sm-center">
+                                    <td class="d-lg-flex justify-content-lg-center"><img></td>
+                                </tr>
+                                <tr>
+                                    <td class="d-sm-flex d-lg-flex justify-content-sm-center justify-content-lg-center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Company Name © 2017</p>
+        </footer>
+    </div>
+    <div class="media"></div>
+    <main></main>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bs-animation.js"></script>
+    <script src="js/script.js"></script>
+</body>
+<!-- <a class="nav-link active" href="#" id="create" onclick="createElements()">Create Event</a> -->
